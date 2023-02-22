@@ -1,0 +1,10 @@
+$height-card: 300px;
+$width-card: 200px;
+$color-hover-catalog: #34568b;
+$time: 0.3s;
+
+$screens:
+  $width-card 487px 1,
+  488px 767px 2,
+  768px 1023px 3,
+  1024px  100vw 4;

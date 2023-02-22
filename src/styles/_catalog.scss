@@ -1,22 +1,28 @@
 .catalog {
-  display: flex;
-  flex-wrap: wrap;
-
-  max-width: 944px;
-  margin: 0 auto;
+  display: grid;
+  justify-content: center;
+  gap: 48px;
 
   &__card {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 200px;
-    height: 300px;
+    height: $height-card;
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin-bottom: 48px;
+    transition: transform $time, color $time;
+
+    &:hover {
+      transform: scale(1.2);
+      color: $color-hover-catalog;
+    }
   }
 
-  &__card:not(:nth-child(4n)) {
-    margin-right: 48px;
+  @each $min, $max, $number in $screens {
+    @media (min-width: #{$min}) and (max-width: #{$max}) {
+      & {
+        grid-template-columns: repeat(#{$number}, $width-card);
+      }
+    }
   }
 }
